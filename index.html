@@ -3,12 +3,444 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sito ufficiale del Premio Giornalistico Arnaldo Picuti. II Edizione 2026, Nocera Umbra.">
   <title>Premio Giornalistico Arnaldo Picuti</title>
+
+  <style>
+    :root {
+      --ink:#18212a;
+      --muted:#59636c;
+      --paper:#f5f2ec;
+      --white:#ffffff;
+      --gold:#9b7748;
+      --gold-dark:#6f5231;
+      --line:#ddd5ca;
+      --green:#36463d;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      color:var(--ink);
+      background:var(--paper);
+      line-height:1.68;
+    }
+    a{color:inherit}
+    .site-header{
+      position:sticky; top:0; z-index:20;
+      background:rgba(245,242,236,.96);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      max-width:var(--max); margin:auto; padding:15px 24px;
+      display:flex; align-items:center; justify-content:space-between; gap:24px;
+    }
+    .brand{
+      text-decoration:none; font-family:Georgia,serif;
+      font-weight:700; letter-spacing:.055em; font-size:18px;
+    }
+    .menu{display:flex; gap:21px; flex-wrap:wrap}
+    .menu a{text-decoration:none;font-size:13px;font-weight:800}
+    .menu a:hover{color:var(--gold-dark)}
+
+    .hero{
+      max-width:var(--max); margin:auto;
+      display:grid; grid-template-columns:1.04fr .96fr;
+      min-height:720px; background:var(--white);
+      border-left:1px solid var(--line); border-right:1px solid var(--line);
+    }
+    .hero-copy{
+      padding:88px 68px 70px;
+      display:flex; flex-direction:column; justify-content:center;
+    }
+    .eyebrow,.section-kicker{
+      text-transform:uppercase; letter-spacing:.2em;
+      font-size:12px; font-weight:800; color:var(--gold-dark);
+    }
+    h1,h2,h3{font-family:Georgia,"Times New Roman",serif}
+    h1{
+      margin:16px 0 0; font-size:clamp(50px,6.4vw,88px);
+      line-height:.96; letter-spacing:-.035em;
+    }
+    .edition{margin-top:28px;font-weight:800;font-size:18px}
+    .tagline{
+      margin:26px 0 0; max-width:520px;
+      font-family:Georgia,serif; font-size:clamp(23px,2.7vw,34px);
+      line-height:1.28; color:var(--muted);
+    }
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+    .button{
+      display:inline-block; padding:12px 18px;
+      border:1px solid var(--ink); text-decoration:none;
+      font-weight:800; font-size:14px;
+    }
+    .button.primary{background:var(--ink);color:white}
+    .hero-photo{min-height:720px;overflow:hidden;background:#d9dfda}
+    .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 34%;display:block}
+
+    section{max-width:var(--max);margin:auto;padding:88px 24px}
+    .grid{
+      display:grid;grid-template-columns:.68fr 1.32fr;
+      gap:72px;align-items:start;
+    }
+    h2{
+      margin:10px 0 0;font-size:clamp(36px,4.5vw,58px);
+      line-height:1.05;letter-spacing:-.025em;
+    }
+    .lead{
+      margin-top:0;font-family:Georgia,serif;
+      font-size:24px;line-height:1.48;
+    }
+    .body-copy p{margin:0 0 18px}
+    .facts{
+      display:grid;grid-template-columns:repeat(3,1fr);
+      gap:12px;margin-top:30px;
+    }
+    .fact{border-top:2px solid var(--gold);padding:15px 0 0}
+    .fact strong{display:block;font-size:14px}
+    .fact span{font-size:14px;color:var(--muted)}
+
+    .books{
+      display:grid;grid-template-columns:repeat(2,1fr);
+      gap:14px;margin-top:32px;
+    }
+    .book{background:white;border:1px solid var(--line);padding:22px}
+    .book strong{font-family:Georgia,serif;font-size:20px;display:block}
+    .book span{color:var(--muted);font-size:14px}
+
+    details{
+      margin-top:28px;background:white;border:1px solid var(--line);
+      padding:18px 22px;
+    }
+    summary{cursor:pointer;font-weight:800}
+    .bibliografia{margin:20px 0 0;padding-left:22px}
+    .bibliografia li{margin-bottom:9px}
+
+    .dark{
+      max-width:none;background:var(--ink);color:white;
+      padding:90px 24px;
+    }
+    .dark-inner{max-width:var(--max);margin:auto}
+    .dark .section-kicker{color:#dac4a6}
+    .dark p{color:#e2e5e6}
+    .dark h2{color:white}
+
+    .first-edition{
+      display:grid;grid-template-columns:.9fr 1.1fr;
+      gap:54px;align-items:center;margin-top:42px;
+    }
+    .archive-photo{
+      background:#111;overflow:hidden;
+      box-shadow:0 18px 45px rgba(0,0,0,.25);
+    }
+    .archive-photo img{width:100%;display:block}
+    .winner{
+      font-family:Georgia,serif;font-size:34px;line-height:1.2;
+      margin:4px 0 20px;
+    }
+    .pill{
+      display:inline-block;border:1px solid rgba(255,255,255,.35);
+      padding:7px 10px;font-size:12px;font-weight:800;
+      letter-spacing:.08em;text-transform:uppercase;margin:4px 6px 4px 0;
+    }
+
+    .jury{
+      margin-top:24px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px;
+    }
+    .jury div{border-top:1px solid rgba(255,255,255,.28);padding-top:10px}
+    .jury strong{display:block}
+    .jury span{font-size:13px;color:#cfd3d5}
+
+    .cards{
+      max-width:var(--max);margin:auto;padding:0 24px 90px;
+      display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+    }
+    .card{background:white;border:1px solid var(--line);padding:28px;min-height:210px}
+    .card h3{font-size:27px;margin:0 0 9px}
+    .card p{color:var(--muted);margin:0}
+
+    .edition-panel{
+      max-width:var(--max);margin:0 auto 90px;
+      background:var(--green);color:white;padding:65px;
+    }
+    .edition-panel .section-kicker{color:#e4d4bd}
+    .edition-panel p{max-width:800px;color:#edf0ee;font-size:18px}
+    .edition-panel .button{border-color:white;color:white}
+
+    .quote{
+      margin:34px 0 0;padding:26px 0 0;
+      border-top:1px solid var(--line);
+      font-family:Georgia,serif;font-size:25px;line-height:1.45;
+    }
+
+    .footer{
+      border-top:1px solid var(--line);
+      padding:34px 24px 48px;text-align:center;
+      color:var(--muted);font-size:14px;
+    }
+
+    @media(max-width:900px){
+      .menu{display:none}
+      .hero{grid-template-columns:1fr;min-height:auto}
+      .hero-copy{padding:58px 26px 46px}
+      .hero-photo{min-height:520px}
+      .grid,.first-edition{grid-template-columns:1fr;gap:30px}
+      .facts,.books,.cards,.jury{grid-template-columns:1fr}
+      .edition-panel{margin-left:24px;margin-right:24px;padding:42px 26px}
+    }
+  </style>
 </head>
 
 <body>
-  <h1>Premio Giornalistico Arnaldo Picuti</h1>
-  <h2>II Edizione – 2026</h2>
-  <p>Sito ufficiale del Premio Giornalistico Arnaldo Picuti.</p>
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="#home">PREMIO ARNALDO PICUTI</a>
+    <div class="menu">
+      <a href="#arnaldo">Arnaldo Picuti</a>
+      <a href="#opere">Opere</a>
+      <a href="#premio">Il Premio</a>
+      <a href="#prima-edizione">I Edizione</a>
+      <a href="#edizione-2026">II Edizione 2026</a>
+      <a href="#contatti">Contatti</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero" id="home">
+    <div class="hero-copy">
+      <div class="eyebrow">Premio Giornalistico</div>
+      <h1>Arnaldo<br>Picuti</h1>
+      <div class="edition">II Edizione · 2026 · Nocera Umbra</div>
+      <p class="tagline">Dare valore ai luoghi non comuni.</p>
+      <div class="actions">
+        <a class="button primary" href="#edizione-2026">Scopri la II Edizione</a>
+        <a class="button" href="#arnaldo">Arnaldo Picuti</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="arnaldo-picuti.jpg" alt="Arnaldo Picuti">
+    </div>
+  </section>
+
+  <section id="arnaldo">
+    <div class="grid">
+      <div>
+        <div class="section-kicker">La persona</div>
+        <h2>Arnaldo Picuti</h2>
+      </div>
+      <div class="body-copy">
+        <p class="lead">
+          Avvocato, pubblicista e scrittore, Arnaldo Picuti ha legato la propria vita alla cultura, alla storia e ai territori dell'Umbria.
+        </p>
+        <p>
+          Nato a Bevagna il 21 maggio 1934 e scomparso a Foligno il 24 gennaio 2022,
+          trascorse l'infanzia e la prima giovinezza tra Bevagna, Foligno e Nocera Umbra.
+          Visse a Foligno, dove esercitò intensamente la professione forense insieme al fratello Ariodante e al nipote Giovanni.
+        </p>
+        <p>
+          Fece parte dell'Accademia Fulginia e fu ispiratore di quella di Bevagna. Fu inoltre membro
+          dell'Associazione-editore Orfini Numeister di Foligno e tra i fondatori, con Giovanni Carnevali, dell'Editrice Ediclio.
+        </p>
+        <p>
+          Le sue passioni più profonde furono la storia, la letteratura e il giornalismo. Giovanissimo collaborò
+          alle pagine regionali di quotidiani nazionali; in seguito scrisse per il settimanale umbro
+          <em>Centro Italia</em> e per le pagine umbre de <em>Il Tempo</em> e <em>Il Giornale d'Italia</em>.
+        </p>
+        <p>
+          Lettore e studioso instancabile, unì cultura giuridica, curiosità intellettuale e una profonda attenzione
+          alla storia dell'Umbria, con particolare riguardo a Bevagna, Nocera Umbra e Foligno.
+        </p>
+
+        <div class="facts">
+          <div class="fact"><strong>1934</strong><span>Nascita a Bevagna</span></div>
+          <div class="fact"><strong>Giornalismo e cultura</strong><span>Pubblicista, autore ed editore</span></div>
+          <div class="fact"><strong>2022</strong><span>Scomparsa a Foligno</span></div>
+        </div>
+
+        <p class="quote">
+          Il Premio nasce per raccogliere questa eredità culturale e continuare a interrogare la storia,
+          i territori e le comunità come strumenti di identità e di futuro.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="opere">
+    <div class="grid">
+      <div>
+        <div class="section-kicker">Scritti e ricerca</div>
+        <h2>Le opere</h2>
+      </div>
+      <div>
+        <p class="lead">
+          Una produzione attraversata dalla storia locale, dalla ricerca documentaria e dall'attenzione per l'identità umbra.
+        </p>
+
+        <div class="books">
+          <div class="book"><strong>Sui Tartufi. Opusculum de tuberis</strong><span>con Antonio Carlo Ponti · 1999</span></div>
+          <div class="book"><strong>La strage di Nocera. La vendetta dei Trinci</strong><span>2004</span></div>
+          <div class="book"><strong>Nocera Umbra. Città d'arte</strong><span>con Emanuela Cecconelli e Maria Romana Picuti · 2011</span></div>
+          <div class="book"><strong>Pagine sull'Umbria</strong><span>Dal diario scritto di notte di Gustav Herling · 2013</span></div>
+          <div class="book"><strong>Relazioni da Gualdo sulla scia di Cesare Borgia</strong><span>2021</span></div>
+          <div class="book"><strong>Montino l'Africano</strong><span>2021</span></div>
+        </div>
+
+        <details>
+          <summary>Apri la bibliografia completa in ordine cronologico</summary>
+          <ol class="bibliografia">
+            <li>Turismo anno zero, La Voce, 2.7.1955.</li>
+<li>Venerdì la TV rappresenta il dramma di un nocerino: Antonio Galeazzo Galeazzi rinnovatore del teatro italiano, La Voce, 1.4.1956.</li>
+<li>Note di vita nocerina scritte col lapis…, La Voce, 16.12.1956.</li>
+<li>Necessaria per Nocera una politica forestale, La Voce, 3.3.1957.</li>
+<li>Il Campanaccio ha bisogno di restauri, La Voce, 17.3.1957.</li>
+<li>Ricordi di altri tempi, La Voce, 12.5.1957.</li>
+<li>Arte, storia e letteratura in un dipinto di Matteo da Gualdo, La Voce, 8.12.1957.</li>
+<li>Alfonso Ceccarelli, Opusculum de tiberis, a cura di A. Picuti e A.C. Ponti, Perugia, Fabrizio Fabbri Ed., 1999.</li>
+<li>Silio Italico e Fulginia, in “Archeo Foligno”, 2003.</li>
+<li>G. Sercambi – M. Bandello, La strage di Nocera – La vendetta dei Trinci, a cura di A. Picuti, Foligno, 2004.</li>
+<li>Giuseppe Gioacchino Belli, due lettere dall’Umbria, con note di A. Picuti e L. Cicioni, Club UNESCO Foligno, 2007.</li>
+<li>Nocera Umbra, in Calendario 2007 per i 150 anni.</li>
+<li>Elogio di Foligno nella memoria di un avvocato folignate nel 1841, in “Archeo Foligno”, gennaio–febbraio 2007.</li>
+<li>Gino Sigismondi, storico e maestro (1910-1984) – Nota bibliografica, in ristampa anastatica di Nuceria in Umbria di Sigismondi, Foligno, Il Salvalibro, 2009.</li>
+<li>Nocera Umbra città d’arte, a cura di A. Picuti, E. Cecconelli e M.R. Picuti, Perugia, Fabrizio Fabbri Ed., 2011.</li>
+<li>Pagine sull’Umbria. Dal diario scritto di notte di Gustav Herling, Foligno, Edizioni Orfini Numeister, 2013.</li>
+<li>Gli asini di Bevagna – Un’allegra contadina di Bevagna, in Grande Dizionario di Bevagna (GDB), n.1/2014.</li>
+<li>Giuseppe Gioacchino Belli alla fiera di Bevagna, GDB, n.2/2014.</li>
+<li>La marcia su Bevagna, GDB, n.3/2015.</li>
+<li>La processione del 1624 per le reliquie di S. Filippo, GDB, n.4/2015.</li>
+<li>In difesa dell’accorda, GDB, n.5/2016.</li>
+<li>L’Accademia della Crusca celebra Ciro Trabalza, GDB, n.6/2016.</li>
+<li>Quei terremoti del 1832, GDB, n.7/2017.</li>
+<li>Un lord a Bevagna: ser William Blake Richmond, GDB, n.8/2017.</li>
+<li>Gli uccelli del portale di S. Michele in Bevagna, GDB, n.9/2018.</li>
+<li>Relazioni da Gualdo sulla scia di Cesare Borgia, Foligno, Il Formichiere, 2021.</li>
+<li>Montino l’Africano. Dalla marcia su Roma alla conquista dell’Impero. La tragedia sul fronte greco, Editio propria, 2021.</li>
+          </ol>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="premio">
+    <div class="grid">
+      <div>
+        <div class="section-kicker">L'eredità</div>
+        <h2>Il Premio</h2>
+      </div>
+      <div class="body-copy">
+        <p class="lead">
+          Il Premio Arnaldo Picuti nasce a Nocera Umbra per custodire e rilanciare un modo di leggere il territorio attraverso cultura, storia e divulgazione.
+        </p>
+        <p>
+          Istituito dalla famiglia Picuti, il Premio ha avuto fin dalla prima edizione il patrocinio del Comune di Nocera Umbra
+          e della sezione regionale umbra dell'associazione “I Borghi più belli”.
+        </p>
+        <p>
+          L'iniziativa intende restituire la complessità della figura di Arnaldo Picuti:
+          avvocato, autore, editore e animatore culturale, profondamente legato a Bevagna, Foligno,
+          Nocera Umbra e Gualdo Tadino.
+        </p>
+        <p>
+          Il filo conduttore è l'idea che la conoscenza dei luoghi e l'incontro tra identità diverse
+          possano diventare una risorsa concreta per uno sviluppo armonico del territorio.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="dark" id="prima-edizione">
+    <div class="dark-inner">
+      <div class="section-kicker">Archivio del Premio</div>
+      <h2>I Edizione</h2>
+
+      <div class="first-edition">
+        <div class="archive-photo">
+          <img src="prima-edizione.jpg" alt="Prima edizione del Premio Arnaldo Picuti">
+        </div>
+
+        <div>
+          <div class="pill">Nocera Umbra</div>
+          <div class="pill">11 ottobre · ore 17</div>
+          <div class="pill">Sala dei Sindaci</div>
+
+          <p class="winner">Premio assegnato al professor <strong>Augusto Ancillotti</strong>.</p>
+
+          <p>
+            La giuria scelse all'unanimità Augusto Ancillotti, riconoscendo nella sua attività di studio,
+            formazione e divulgazione un'affinità profonda con il percorso culturale di Arnaldo Picuti:
+            la ricerca storica come strumento per comprendere l'identità umbra e restituirla alla comunità.
+          </p>
+          <p>
+            Il riconoscimento valorizzò in particolare il lungo lavoro di Ancillotti sulle Tavole Eugubine
+            e il suo impegno nella promozione culturale e turistica dei territori dell'Umbria.
+          </p>
+
+          <h3 style="font-size:24px;margin:30px 0 8px;">La giuria della I Edizione</h3>
+          <div class="jury">
+            <div><strong>Mirella Picuti</strong><span>famiglia Picuti</span></div>
+            <div><strong>Giovanni Picuti</strong><span>avvocato, letteratura e giornalismo</span></div>
+            <div><strong>Ambra Cenci</strong><span>animazione culturale</span></div>
+            <div><strong>Alberto Scattolini</strong><span>assessore al turismo e alla cultura</span></div>
+            <div><strong>Carlo Cambi</strong><span>giornalista e scrittore</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="edizione-2026">
+    <div class="edition-panel">
+      <div class="section-kicker">Nocera Umbra · 2026</div>
+      <h2>II Edizione</h2>
+      <p>
+        La seconda edizione prosegue il percorso avviato dal Premio, mantenendo al centro il rapporto tra
+        giornalismo, cultura, identità dei luoghi e capacità di raccontare il territorio.
+      </p>
+      <p>
+        Qui inseriremo progressivamente data, programma, giuria, premiato o premiati, partner, patrocini,
+        comunicati stampa e tutti i materiali ufficiali dell'edizione 2026.
+      </p>
+      <a class="button" href="#contatti">Informazioni</a>
+    </div>
+  </section>
+
+  <div class="cards">
+    <article class="card">
+      <h3>Rassegna stampa</h3>
+      <p>Articoli, servizi, interviste e comunicati dedicati al Premio e alle diverse edizioni.</p>
+    </article>
+    <article class="card">
+      <h3>Fotografie</h3>
+      <p>Una galleria dedicata alle cerimonie, ai protagonisti e ai momenti più significativi del Premio.</p>
+    </article>
+    <article class="card">
+      <h3>Albo d'Oro</h3>
+      <p>I vincitori delle diverse edizioni e le motivazioni dei riconoscimenti assegnati.</p>
+    </article>
+  </div>
+
+  <section id="contatti">
+    <div class="grid">
+      <div>
+        <div class="section-kicker">Informazioni</div>
+        <h2>Contatti</h2>
+      </div>
+      <div>
+        <p class="lead">Per informazioni sul Premio Giornalistico Arnaldo Picuti.</p>
+        <p>Inseriremo qui l'indirizzo email e i riferimenti ufficiali dell'organizzazione.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  © 2026 Premio Giornalistico Arnaldo Picuti · Nocera Umbra
+</footer>
 </body>
 </html>
