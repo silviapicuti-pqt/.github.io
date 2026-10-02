@@ -1,0 +1,9 @@
+PREMIO ARNALDO PICUTI — PACCHETTO PER GITHUB PAGES
+
+Caricare index.html e la cartella images nella stessa cartella del repository, mantenendo nomi e percorsi.
+Il pacchetto include i ritratti, otto fotografie selezionate della I Edizione, il ritaglio del Corriere dell'Umbria e la copertina machiavelli.jpg.
+Sono integrate le schede di Augusto Ancillotti e Laura Refe con i testi forniti e la data della II Edizione: sabato 24 ottobre 2026, ore 17:30, Sala Pinacoteca di Nocera Umbra.
+La scheda L'eredità che continua è esclusa su richiesta dell'utente.
+Lo zoom si chiude con il pulsante Chiudi, con Escape o cliccando fuori dal riquadro. Senza JavaScript le immagini si aprono direttamente.
+I riferimenti dei contatti da inserire, già presenti nell'HTML originale, sono mantenuti.
+Verificati i percorsi delle immagini. La resa visiva e l'interazione non sono state verificate in un browser.

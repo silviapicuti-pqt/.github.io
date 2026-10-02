@@ -191,7 +191,32 @@
       .facts,.books,.cards,.jury{grid-template-columns:1fr}
       .edition-panel{margin-left:24px;margin-right:24px;padding:42px 26px}
     }
-  </style>
+    [id]{scroll-margin-top:100px}
+    a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:5px}
+    .zoom{display:block;cursor:zoom-in}
+    .book-illustrated{display:flex;gap:18px;align-items:start}
+    .book-illustrated img{width:105px;height:auto;display:block}
+    .image-hint{font-size:12px;color:var(--muted);margin:12px 0 0}
+    .winner-profile{display:grid;grid-template-columns:220px 1fr;gap:32px;align-items:start;margin-top:60px;padding-top:40px;border-top:1px solid var(--line)}
+    .winner-profile img{display:block;width:100%;height:auto}
+    .winner-profile h3,.gallery-heading h3{font-size:clamp(28px,4vw,38px);line-height:1.2;margin:10px 0 20px}
+    .gallery-heading{margin-top:65px}
+    .photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:28px}
+    .photo-grid figure{margin:0}.photo-grid img{width:100%;height:250px;object-fit:cover;display:block}
+    .photo-grid figure:nth-child(4){grid-column:span 2}.photo-grid figcaption{font-size:13px;color:#cfd3d5;margin-top:9px}
+    .press-card{padding:30px;background:#fffdf7;border:1px solid var(--line);box-shadow:0 12px 32px #18212a0d}
+    .press-masthead{font-family:Georgia,serif;font-weight:bold;font-size:clamp(26px,4vw,38px);border-top:3px double var(--ink);border-bottom:1px solid var(--ink);padding:8px 0}
+    .press-label{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+    .press-card img{width:100%;height:auto;display:block}
+    .lightbox{padding:20px;background:#111;color:#fff;border:1px solid #777;width:min(1100px,96vw);max-height:94vh}
+    .lightbox::backdrop{background:#000d}.lightbox img{display:block;max-width:100%;max-height:76vh;object-fit:contain;margin:0 auto}
+    .lightbox-bar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:15px}
+    .lightbox button{background:#fff;color:#18212a;border:0;padding:10px 16px;cursor:pointer;font:inherit}
+    body.zoom-open{overflow:hidden}
+    @media(max-width:900px){.nav{align-items:start;flex-direction:column;gap:10px}.menu{display:flex;gap:10px 16px}.menu a{font-size:12px}.photo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.winner-profile{grid-template-columns:160px 1fr}.edition-panel{max-width:100%;margin:0;padding:32px 22px}}
+    @media(max-width:560px){section{padding:58px 20px}.dark{padding:58px 20px}.winner-profile{grid-template-columns:1fr}.winner-profile>a{max-width:260px}.photo-grid{grid-template-columns:1fr}.photo-grid figure:nth-child(4){grid-column:auto}.hero-photo{min-height:0;height:480px}.hero-copy{padding:48px 24px}.press-card{padding:18px}.book-illustrated{flex-wrap:wrap}.brand{font-size:16px}.lightbox{padding:12px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  .laura-profile h3{color:white}.laura-bibliography{color:var(--ink)}.laura-bibliography p{color:var(--ink)}.dark .ancillotti-bibliography{color:var(--ink)}.dark .ancillotti-bibliography p{color:var(--ink)}</style>
 </head>
 
 <body>
@@ -203,7 +228,7 @@
       <a href="#opere">Opere</a>
       <a href="#premio">Il Premio</a>
       <a href="#prima-edizione">I Edizione</a>
-      <a href="#edizione-2026">II Edizione 2026</a>
+      <a href="#galleria">Fotografie</a><a href="#stampa">Ne hanno parlato</a><a href="#edizione-2026">II Edizione 2026</a>
       <a href="#contatti">Contatti</a>
     </div>
   </nav>
@@ -223,7 +248,7 @@
       </div>
     </div>
     <div class="hero-photo">
-      <img src="arnaldo-picuti.jpg" alt="Arnaldo Picuti">
+      <img src="images/arnaldo-picuti.jpg" alt="Arnaldo Picuti">
     </div>
   </section>
 
@@ -237,7 +262,7 @@
         <p class="lead">
           Avvocato, pubblicista e scrittore, Arnaldo Picuti ha legato la propria vita alla cultura, alla storia e ai territori dell'Umbria.
         </p>
-        <p><p>
+        <p>
   È nato a Bevagna il 21 maggio 1934 ed è morto a Foligno il 24 gennaio 2022, all’età di 87 anni. Ha trascorso l’infanzia e la prima giovinezza tra Bevagna, Foligno e Nocera Umbra: tre luoghi che hanno accompagnato la sua formazione e hanno mantenuto un posto centrale nei suoi interessi e nei suoi studi. Si è poi stabilito a Foligno, dove ha esercitato con dedizione la professione forense insieme al fratello Ariodante e al nipote Giovanni, affiancando all’attività di avvocato un costante impegno nella vita culturale del territorio.
 </p>
 <p>
@@ -280,7 +305,7 @@
           <div class="book"><strong>La strage di Nocera. La vendetta dei Trinci</strong><span>2004</span></div>
           <div class="book"><strong>Nocera Umbra. Città d'arte</strong><span>con Emanuela Cecconelli e Maria Romana Picuti · 2011</span></div>
           <div class="book"><strong>Pagine sull'Umbria</strong><span>Dal diario scritto di notte di Gustav Herling · 2013</span></div>
-          <div class="book"><strong>Relazioni da Gualdo sulla scia di Cesare Borgia</strong><span>2021</span></div>
+          <div class="book book-illustrated"><a class="zoom" href="images/machiavelli.jpg" aria-label="Ingrandisci la copertina"><img src="images/machiavelli.jpg" alt="Copertina di Relazione da Gualdo sulla scia di Cesare Borgia" loading="lazy"></a><div><strong>Relazione da Gualdo sulla scia di Cesare Borgia</strong><span>2021</span><p class="image-hint">Clicca sulla copertina per ingrandirla</p></div></div>
           <div class="book"><strong>Montino l'Africano</strong><span>2021</span></div>
         </div>
 
@@ -350,16 +375,16 @@
   <div class="dark" id="prima-edizione">
     <div class="dark-inner">
       <div class="section-kicker">Archivio del Premio</div>
-      <h2>I Edizione</h2>
+      <h2>I Edizione · 2025</h2>
 
       <div class="first-edition">
         <div class="archive-photo">
-          <img src="prima-edizione.jpg" alt="Prima edizione del Premio Arnaldo Picuti">
+          <img src="images/prima-edizione-relatori.jpeg" alt="Prima edizione del Premio Arnaldo Picuti">
         </div>
 
         <div>
           <div class="pill">Nocera Umbra</div>
-          <div class="pill">11 ottobre · ore 17</div>
+          <div class="pill">11 ottobre 2025 · ore 17</div>
           <div class="pill">Sala dei Sindaci</div>
 
           <p class="winner">Premio assegnato al professor <strong>Augusto Ancillotti</strong>.</p>
@@ -385,9 +410,36 @@
           </div>
         </div>
       </div>
+<article class="winner-profile" id="augusto-ancillotti"><a class="zoom" href="images/augusto-ancillotti.jpg" aria-label="Ingrandisci il ritratto di Augusto Ancillotti"><img src="images/augusto-ancillotti.jpg" alt="Augusto Ancillotti" loading="lazy"></a><div><div class="section-kicker">Il premiato · 2025</div><h3>Augusto Ancillotti</h3><p>Glottologo e linguista, ha dedicato il proprio lavoro alla conoscenza della storia degli Umbri e allo studio delle Tavole Eugubine. La I Edizione del Premio ha riconosciuto il valore della sua ricerca e del suo impegno nella divulgazione.</p><p>Ha insegnato Glottologia e Linguistica Generale in tre Università, Milano, Mogadiscio e Perugia, dove è stato anche prorettore e presidente del corso di laurea in Scienze della Comunicazione. Nell’ambito della ricerca scientifica si è occupato di teoria della linguistica genetica e di formazione delle lingue indeuropee (cassitico, trace, umbro).</p>
+<p>È autore di un centinaio di pubblicazioni accademiche fra cui spiccano la completa traduzione commentata delle Tavole Iguvine (Augusto Ancillotti – Romolo Cerri, <em>Le tavole di Gubbio e la civiltà degli Umbri</em>, Edizioni Jama, 1996), il saggio <em>E parlano ancora</em> (Edizioni Jama, 2021) e il manuale universitario <em>Elogio del variabile. Introduzione alla linguistica storica: l’indeuropeistica</em> (Guerini e Associati, 2005).</p>
+<p>Si è dedicato al recupero delle tracce linguistiche dell’età del bronzo nascoste nelle lingue storicamente susseguitesi nello studio <em>Alcuni tratti del paleoumbro</em>, in <em>Gli Umbri in età preromana</em> (27° Convegno dell’Istituto Nazionale di Studi Etruschi e Italici, Perugia, Gubbio e Urbino, 27–31 ottobre 2009, Pisa-Roma, 2014, pp. 454–481). Tra i suoi saggi: <em>Forme e strutture della religione nell’Italia mediana antica</em> (a cura di Alberto Calderini, Atti del 3° convegno IRDAU, Roma, 2016) e <em>Alle origini della vinificazione in Italia. Una prospettiva glottologica</em> (in <em>Il vino e la vite come paradigma della diversità culturale tra oriente e Occidente</em>, Convegno della Fondazione Lungarotti al MUVIT, Museo del Vino, Torgiano, 2014).</p>
+<p>Nel 1999 insieme a Romolo Cerri ed altri studiosi ha fondato l’IRDAU, l’Istituto di Ricerche e Documentazione sugli Antichi Umbri (<a href="http://www.tavoleeugubine.it">www.tavoleeugubine.it</a>).</p>
+<p>L’impegno alla divulgazione del contenuto delle Tavole di Gubbio lo ha spinto ad usare anche lo strumento della scrittura d’evasione: ha così pubblicato i romanzi storici <em>Pane di farro. Fikla fasia. Il libro sepolto con l’arca di Numa</em> (Edizioni Jama, 2015), <em>La mano di Dio. Il libro nascosto fra i commentari di Anco Marcio</em> (Edizioni Jama, 2016) e <em>Le parole venute dal passato. Quattro storie al tempo della nascita delle Tavole di Gubbio</em> (Edizioni Jama, 2018). Come autore teatrale ha messo in scena due pièces in forma di didattica, rappresentate al Teatro Romano di Gubbio: <em>E fusero le parole sacre nel bronzo</em> (2016) e <em>Le parole venute dal passato</em> (2015).</p>
+<details class="ancillotti-bibliography"><summary>Bibliografia essenziale di Augusto Ancillotti</summary><ul class="bibliografia">
+<li>Augusto Ancillotti – Romolo Cerri, <em>Le tavole di Gubbio e la civiltà degli Umbri</em>, Edizioni Jama, 1996.</li>
+<li><em>Elogio del variabile. Introduzione alla linguistica storica: l’indeuropeistica</em>, Guerini e Associati, 2005.</li>
+<li><em>Alcuni tratti del paleoumbro</em>, in <em>Gli Umbri in età preromana</em>, Pisa-Roma, 2014, pp. 454–481.</li>
+<li><em>Alle origini della vinificazione in Italia. Una prospettiva glottologica</em>, in <em>Il vino e la vite come paradigma della diversità culturale tra oriente e Occidente</em>, Convegno della Fondazione Lungarotti al MUVIT, Torgiano, 2014.</li>
+<li><em>Pane di farro. Fikla fasia. Il libro sepolto con l’arca di Numa</em>, Edizioni Jama, 2015.</li>
+<li><em>Forme e strutture della religione nell’Italia mediana antica</em>, a cura di Alberto Calderini, Atti del 3° convegno IRDAU, Roma, 2016.</li>
+<li><em>La mano di Dio. Il libro nascosto fra i commentari di Anco Marcio</em>, Edizioni Jama, 2016.</li>
+<li><em>Le parole venute dal passato. Quattro storie al tempo della nascita delle Tavole di Gubbio</em>, Edizioni Jama, 2018.</li>
+<li><em>E parlano ancora</em>, Edizioni Jama, 2021.</li>
+</ul><p>Per il teatro: <em>Le parole venute dal passato</em> (2015) ed <em>E fusero le parole sacre nel bronzo</em> (2016), rappresentate al Teatro Romano di Gubbio.</p></details>
+</div></article>
+<div class="gallery-heading" id="galleria"><div class="section-kicker">Una memoria per immagini</div><h3>Momenti della I Edizione</h3><p>La cerimonia, il pubblico e gli incontri a Nocera Umbra. Clicca sulle fotografie per ingrandirle.</p></div>
+<div class="photo-grid">
+<figure><a class="zoom" href="images/prima-edizione-ospiti.jpg"><img src="images/prima-edizione-ospiti.jpg" alt="Gli ospiti della I Edizione" loading="lazy"></a><figcaption>Gli ospiti della I Edizione</figcaption></figure>
+<figure><a class="zoom" href="images/prima-edizione-gruppo.jpg"><img src="images/prima-edizione-gruppo.jpg" alt="Un momento insieme" loading="lazy"></a><figcaption>Un momento insieme</figcaption></figure>
+<figure><a class="zoom" href="images/prima-edizione-pubblico.jpg"><img src="images/prima-edizione-pubblico.jpg" alt="Il pubblico in sala" loading="lazy"></a><figcaption>Il pubblico in sala</figcaption></figure>
+<figure><a class="zoom" href="images/prima-edizione-relatori.jpeg"><img src="images/prima-edizione-relatori.jpeg" alt="Il tavolo dei relatori" loading="lazy"></a><figcaption>Il tavolo dei relatori</figcaption></figure>
+<figure><a class="zoom" href="images/prima-edizione-targa.jpg"><img src="images/prima-edizione-targa.jpg" alt="La targa del Premio" loading="lazy"></a><figcaption>La targa del Premio</figcaption></figure>
+<figure><a class="zoom" href="images/prima-edizione-incontro.jpg"><img src="images/prima-edizione-incontro.jpg" alt="Augusto Ancillotti durante un incontro" loading="lazy"></a><figcaption>Augusto Ancillotti durante un incontro</figcaption></figure>
+<figure><a class="zoom" href="images/prima-edizione-intervento.jpg"><img src="images/prima-edizione-intervento.jpg" alt="Un momento degli interventi" loading="lazy"></a><figcaption>Un momento degli interventi</figcaption></figure>
+<figure><a class="zoom" href="images/prima-edizione-libri.jpg"><img src="images/prima-edizione-libri.jpg" alt="Libri e materiali dedicati ad Arnaldo Picuti" loading="lazy"></a><figcaption>Libri e materiali dedicati ad Arnaldo Picuti</figcaption></figure></div>
     </div>
   </div>
-
+<section id="stampa"><div class="grid"><div><div class="section-kicker">Rassegna stampa</div><h2>Ne hanno parlato</h2></div><article class="press-card"><div class="press-masthead">Corriere dell’Umbria</div><p class="press-label">Dalla I Edizione · 2025</p><a class="zoom" href="images/corriere-umbria-premio.jpg" aria-label="Ingrandisci il ritaglio del Corriere dell’Umbria"><img src="images/corriere-umbria-premio.jpg" alt="Ritaglio del Corriere dell’Umbria dedicato alla consegna del Premio Picuti ad Augusto Ancillotti" loading="lazy"></a><p class="image-hint">Clicca sul ritaglio per leggerlo a grandezza intera.</p></article></div></section>
   <section id="edizione-2026">
     <div class="edition-panel">
       <div class="section-kicker">Nocera Umbra 24.10.2026</div>
@@ -397,10 +449,14 @@
         giornalismo, cultura, identità dei luoghi e capacità di raccontare il territorio.
       </p>
       <p>
-        Qui inseriremo progressivamente data, programma, giuria, premiato o premiati, partner, patrocini,
-        comunicati stampa e tutti i materiali ufficiali dell'edizione 2026.
+        La seconda edizione del Premio Arnaldo Picuti si svolgerà <strong>sabato 24 ottobre 2026 alle ore 17:30</strong>, presso la <strong>Sala Pinacoteca di Nocera Umbra</strong>.
       </p>
       <a class="button" href="#contatti">Informazioni</a>
+      <article class="winner-profile laura-profile"><a class="zoom" href="images/laura-refe.jpg" aria-label="Ingrandisci il ritratto di Laura Refe"><img src="images/laura-refe.jpg" alt="Laura Refe" loading="lazy"></a><div><div class="section-kicker">La premiata · 2026</div><h3>Laura Refe</h3><p>Laura Refe è Professoressa Associata di Filologia della letteratura italiana presso l’Università Telematica Pegaso. In precedenza ha ricoperto il ruolo di Ricercatrice presso l’Università per Stranieri di Perugia, dove è stata Responsabile di Unità del PRIN 2022 PNRR “Petrarch and the Reformation: Paths of a Troubled Reception”. In qualità di assegnista di ricerca ha collaborato, presso l’Università ‘Ca’ Foscari’ di Venezia, all’ERC Starting Project “Aristotle in the Italian Vernacular. Rethinking Renaissance and Early Modern Intellectual History c. 1400 - c. 1600”.</p>
+<p>È stata borsista in Italia e all’estero (Parigi, Messina, Villa I Tatti – The Harvard University Center for Renaissance Studies in Florence, the Warburg Institute University of London, Magdalen College of Oxford), <em>visiting scholar</em> alla Herzog August Bibliothek di Wolfenbüttel e <em>visiting professor</em> nell’ambito della mobilità Erasmus+ Tucep presso la Masarykova Univerzita, Filozoficka Fakulta di Brno, Czech Republic.</p>
+<p>I suoi interessi spaziano dalla produzione petrarchesca (postillati e opere), alla biografia culturale di Petrarca e del suo <em>entourage</em>, alla ricostruzione d’ambiente della Firenze del Rinascimento, ai paratesti dei volgarizzamenti aristotelici del Cinquecento. Ha partecipato a diversi PRIN e PRA, è stata relatrice in numerosi convegni e seminari nazionali e internazionali, autrice di contributi pubblicati su riviste di settore e in volumi, di monografie di argomento petrarchesco, collaboratrice del portale POL – <em>Petrarca online</em>, membro di comitati editoriali di riviste e collane scientifiche, membro dell’Accademia Petrarca, dell’Advisory Board della IANLS – International Association for NeoLatin Studies. Nel 2015 la sua edizione critica dell’epistola ai posteri di Petrarca (<em>I ‘fragmenta’ dell’epistola “Ad Posteritatem” di Francesco Petrarca</em>, Messina, Centro Internazionale di Studi Umanistici, 2014) ha ottenuto il Premio “Marino Moretti” XII edizione per la Filologia.</p>
+<details class="laura-bibliography"><summary>Opera citata e riconoscimento</summary><ul class="bibliografia"><li><em>I ‘fragmenta’ dell’epistola “Ad Posteritatem” di Francesco Petrarca</em>, Messina, Centro Internazionale di Studi Umanistici, 2014. Premio “Marino Moretti” XII edizione per la Filologia, 2015.</li></ul></details>
+</div></article>
     </div>
   </section>
 
@@ -437,5 +493,18 @@
 <footer class="footer">
   © 2026 Premio Giornalistico Arnaldo Picuti · Nocera Umbra
 </footer>
+<dialog class="lightbox" id="image-viewer" aria-label="Immagine ingrandita"><div class="lightbox-bar"><span id="image-caption"></span><button type="button" id="close-viewer" aria-label="Chiudi immagine ingrandita">Chiudi ×</button></div><img id="large-image" alt=""></dialog>
+<script>
+(() => {
+  const dialog=document.getElementById('image-viewer'),large=document.getElementById('large-image'),caption=document.getElementById('image-caption');
+  document.querySelectorAll('a.zoom').forEach(link=>link.addEventListener('click',event=>{
+    if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey||!dialog.showModal)return;
+    event.preventDefault();large.src=link.href;large.alt=link.querySelector('img').alt;caption.textContent=large.alt;dialog.showModal();document.body.classList.add('zoom-open');
+  }));
+  document.getElementById('close-viewer').addEventListener('click',()=>dialog.close());
+  dialog.addEventListener('click',event=>{const r=dialog.getBoundingClientRect();if(event.target===dialog&&(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom))dialog.close()});
+  dialog.addEventListener('close',()=>{document.body.classList.remove('zoom-open');large.removeAttribute('src')});
+})();
+</script>
 </body>
 </html>
